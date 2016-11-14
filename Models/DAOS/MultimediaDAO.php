@@ -16,4 +16,12 @@ class MultimediaDAO
 
         $query->execute();
     }
+    public function selectAll()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM multimedia');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

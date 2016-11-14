@@ -22,4 +22,12 @@ class EventoDAO
 
         $query->execute();
     }
+    public function selectAll()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM eventos');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -24,6 +24,14 @@ class SolicitudDelegadosDAO
         //TODO other bindParams()
         $query->execute();
     }
+    public function selectAll()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM solicituddelegados');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 /**
  * Created by PhpStorm.

@@ -14,4 +14,12 @@ class AlbumDAO
 
         $query->execute();
     }
+    public function selectAll()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM album');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
