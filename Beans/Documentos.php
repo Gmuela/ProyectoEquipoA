@@ -1,14 +1,15 @@
 <?php
 
-class documentos
+class Documentos
 {
     private $idDocumentos;
     private $tipo;
     private $titulo;
     private $descripcion;
     private $fechaPublicacion;
-    private $enlaceDescarga;
-    private $descarga;
+    private $enlaceDocumento;
+    private $documento;
+    private $fechaModificacion;
 
     /**
      * GET
@@ -39,14 +40,19 @@ class documentos
         return $this->fechaPublicacion;
     }
 
-    public function getEnlaceDescarga()
+    public function getEnlaceDocumento()
     {
-        return $this->enlaceDescarga;
+        return $this->enlaceDocumento;
     }
 
-    public function getDescarga()
+    public function getDocumento()
     {
-        return $this->descarga;
+        return $this->documento;
+    }
+
+    public function getFechaModificacion()
+    {
+        return $this->fechaModificacion;
     }
 
     /**
@@ -73,13 +79,18 @@ class documentos
         $this->fechaPublicacion = $fechaPublicacion;
     }
 
-    public function setEnlaceDescarga($enlaceDescarga)
+    public function setEnlaceDocumento($enlaceDocumento)
     {
-        $this->enlaceDescarga = $enlaceDescarga;
+        $this->enlaceDocumento = $enlaceDocumento;
     }
 
-    public function setDescarga($descarga)
+    public function setDocumento($documento)
     {
-        $this->descarga = $descarga;
+        $this->documento = $documento;
+    }
+
+    public function setFechaModificacion($fechaModificacion)
+    {
+        $this->fechaModificacion = $fechaModificacion;
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-class delegados
+class Delegados
 {
     private $idDelegados;
-    private $nombre;
+    private $usuario;
     private $password;
-    private $email;
-    private $telefono;
+    private $nombre;
+    private $apellidos;
 
     /**
      * GET
@@ -27,14 +27,14 @@ class delegados
         return $this->password;
     }
 
-    public function getEmail()
+    public function getUsuario()
     {
-        return $this->email;
+        return $this->usuario;
     }
 
-    public function getTelefono()
+    public function getApellidos()
     {
-        return $this->telefono;
+        return $this->apellidos;
     }
 
     /**
@@ -51,14 +51,14 @@ class delegados
         $this->password = $password;
     }
 
-    public function setEmail($email)
+    public function setUsuario($usuario)
     {
-        $this->email = $email;
+        $this->usuario = $usuario;
     }
 
-    public function setTelefono($telefono)
+    public function setApellidos($apellidos)
     {
-        $this->telefono = $telefono;
+        $this->apellidos = $apellidos;
     }
-    
+
 }

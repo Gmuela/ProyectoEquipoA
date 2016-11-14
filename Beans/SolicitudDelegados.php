@@ -1,17 +1,17 @@
 <?php
 
 
-class Solicitudes
+class Solicitud
 {
     private $idSolicitudes;
     private $nombre;
     private $apellidos;
-    private $fechaNacimiento;
     private $email;
     private $telefono;
+    private $razon;
 
     /**
-     * SET
+     * GET
      */
 
     public function getIdSolicitudes()
@@ -26,10 +26,12 @@ class Solicitudes
     {
         return $this->apellidos;
     }
-    public function getFechaNacimiento()
+
+    public function getRazon()
     {
-        return $this->fechaNacimiento;
+        return $this->razon;
     }
+
     public function getEmail()
     {
         return $this->email;
@@ -53,9 +55,9 @@ class Solicitudes
         $this->apellidos = $apellidos;
     }
 
-    public function setFechaNacimiento($fechaNacimiento)
+    public function setRazon($razon)
     {
-        $this->fecha_nacimiento = $fechaNacimiento;
+        $this->razon = $razon;
     }
 
     public function setEmail($email)
