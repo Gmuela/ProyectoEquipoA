@@ -11,14 +11,18 @@
     <label for="titulo">Titulo</label> <input type="text" name="titulo" id="titulo">
     <label for="descripcion">Descripción</label> <textarea name="descripcion" id="descripcion"></textarea>
     <label for="fechaPubli">Fecha de Publicacion</label> <input type="date" name="fechaPubli" id="fechaPubli">
-    <label for="enlaceDocumento">Enlace Documento</label> <input type="text" name="enlaceDocumento" id="enlaceDocumento">
-    <label for="Documento">Documento</label> <input type="file" name="Documento" id="Documento">
+    <label for="archivo">Documento</label> <input type="file" name="archivo" id="archivo">
 
-    <label for="tipo">Tipo</label>
-    <select name="tipo" id="tipo">
-        <option value="ley">Ley</option>
-        <option value="documentacion">Documentacion</option>
-        <option value="docRestringida">Documentacion Restringida</option>
+    <label for="ley">Ley</label>
+    <select name="ley" id="ley">
+        <option value="0">No</option>
+        <option value="1">Si</option>
+    </select>
+
+    <label for="privado">Privado</label>
+    <select name="privado" id="privado">
+        <option value="0">No</option>
+        <option value="1">Si</option>
     </select>
 
     <button onclick="submit(this)">Enviar Documento</button>

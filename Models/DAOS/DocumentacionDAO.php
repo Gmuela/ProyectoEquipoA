@@ -16,10 +16,10 @@ class DocumentosDAO
                                             :privado, 
                                             :ley, 
                                             :fechaModificacion)");
-        $query->bindParam(":titulo", $delegados->getTitulo());
-        $query->bindParam(":password", $delegados->getpassword());
-        $query->bindParam(":nombre", $delegados->getnombre());
-        $query->bindParam(":apellidos", $delegados->getapellidos());
+        $query->bindParam(":titulo", $documentos->getTitulo());
+        $query->bindParam(":password", $documentos->getpassword());
+        $query->bindParam(":nombre", $documentos->getnombre());
+        $query->bindParam(":apellidos", $documentos->getapellidos());
         //TODO other bindParams()
         $query->execute();
     }
