@@ -7,7 +7,7 @@ class DocumentosDAO
     public function insert($documentos)
     {
         $dbConnection = UtilDB::connectTo("CCOO","root","");
-        $query = $dbConnection->query("INSERT INTO documentacion(titulo, descripcion, fechaPublicacion, archivo, privado, ley, fechaModificacion)
+        $query = $dbConnection->prepare("INSERT INTO documentacion(titulo, descripcion, fechaPublicacion, archivo, privado, ley, fechaModificacion)
                                       VALUES(                                           
                                             :titulo,
                                             :descripcion,

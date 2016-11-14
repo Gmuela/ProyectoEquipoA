@@ -3,12 +3,12 @@
 class Documentos
 {
     private $idDocumentos;
-    private $tipo;
     private $titulo;
     private $descripcion;
     private $fechaPublicacion;
-    private $enlaceDocumento;
-    private $documento;
+    private $archivo;
+    private $privado;//BOOLEAN
+    private $ley;//BOOLEAN
     private $fechaModificacion;
 
     /**
@@ -18,11 +18,6 @@ class Documentos
     public function getIdDocumentos()
     {
         return $this->idDocumentos;
-    }
-
-    public function getTipo()
-    {
-        return $this->tipo;
     }
 
     public function getTitulo()
@@ -40,14 +35,19 @@ class Documentos
         return $this->fechaPublicacion;
     }
 
-    public function getEnlaceDocumento()
+    public function getArchivo()
     {
-        return $this->enlaceDocumento;
+        return $this->archivo;
     }
 
-    public function getDocumento()
+    public function getPrivado()
     {
-        return $this->documento;
+        return $this->privado;
+    }
+
+    public function getLey()
+    {
+        return $this->ley;
     }
 
     public function getFechaModificacion()
@@ -58,11 +58,6 @@ class Documentos
     /**
      * SET
      */
-
-    public function setTipo($tipo)
-    {
-        $this->tipo = $tipo;
-    }
 
     public function setTitulo($titulo)
     {
@@ -79,14 +74,19 @@ class Documentos
         $this->fechaPublicacion = $fechaPublicacion;
     }
 
-    public function setEnlaceDocumento($enlaceDocumento)
+    public function setArchivo($archivo)
     {
-        $this->enlaceDocumento = $enlaceDocumento;
+        $this->archivo = $archivo;
     }
 
-    public function setDocumento($documento)
+    public function setPrivado($privado)
     {
-        $this->documento = $documento;
+        $this->privado = $privado;
+    }
+
+    public function setLey($ley)
+    {
+        $this->ley = $ley;
     }
 
     public function setFechaModificacion($fechaModificacion)

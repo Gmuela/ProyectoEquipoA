@@ -6,10 +6,9 @@ class AlbumDAO
     {
         $dbConnection = UtilDB::connectTo("ccoo","root","");
 
-        $query = $dbConnection->prepare("INSERT INTO album(titulo, fuente, imagenes, fechaModificacion) VALUES(:titulo, :fuente, :imagenes, :fechaModificacion)");
+        $query = $dbConnection->prepare("INSERT INTO album(titulo, imagenes, fechaModificacion) VALUES(:titulo, :fuente, :imagenes, :fechaModificacion)");
 
         $query->bindParam(":titulo", $album->getTitulo());
-        $query->bindParam(":fuente", $album->getFuente());
         $query->bindParam(":imagenes",$album->getImagen());
         $query->bindParam(":fechaModificacion", $album->getFechaModificacion()->format('Y-m-d H:i:s'));
 

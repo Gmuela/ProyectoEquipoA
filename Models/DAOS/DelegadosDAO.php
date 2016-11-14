@@ -7,7 +7,7 @@ class DelegadosDAO
     public function insert($delegados)
     {
         $dbConnection = UtilDB::connectTo("CCOO","root","");
-        $query = $dbConnection->query("INSERT INTO delegados(usuario, password, nombre, apellidos)
+        $query = $dbConnection->prepare("INSERT INTO delegados(usuario, password, nombre, apellidos)
                                       VALUES(                                           
                                             :usuario,
                                             :pasword,

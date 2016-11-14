@@ -6,7 +6,7 @@ class NoticiasDAO
     public function insert($noticias)
     {
       $dbConnection = UtilDB::connectTo("CCOO","root","");
-      $query = $dbConnection->query("INSERT INTO noticias (titulo, subtitulo, cuerpo, imagen, pieImagen, imagenMiniatura, fehaCreacion, fechaModificaion)
+      $query = $dbConnection->prepare("INSERT INTO noticias (titulo, subtitulo, cuerpo, imagen, pieImagen, imagenMiniatura, fehaCreacion, fechaModificaion)
                                       VALUES(
                                              :titulo,
                                              :subtitulo,

@@ -6,9 +6,10 @@ class MultimediaDAO
     {
         $dbConnection = UtilDB::connectTo("ccoo","root","");
 
-        $query = $dbConnection->prepare("INSERT INTO multimedia(imagen, titulo, id_album, fechaModificacion) VALUES(:imagen,:titulo,:id_album,:fechaModificacion)");
+        $query = $dbConnection->prepare("INSERT INTO multimedia(imagen, fuente, titulo, id_album, fechaModificacion) VALUES(:imagen, :fuente, :titulo,:id_album,:fechaModificacion)");
 
         $query->bindParam(":imagenes",$multimedia->getImagen());
+        $query->bindParam(":fuente", $multimedia->getFuente());
         $query->bindParam(":titulo", $multimedia->getTitulo());
         $query->bindParam(":id_album", $multimedia->getIdAlbum());
         $query->bindParam(":fechaModificacion", $multimedia->getFechaModificacion()->format('Y-m-d H:i:s'));

@@ -1,32 +1,4 @@
-CREATE DATABASE CCOO;
-USE CCOO;
 
-
-CREATE TABLE delegados
-(idDelegado INT PRIMARY KEY AUTO_INCREMENT,
- usuario VARCHAR(25),
- password VARCHAR(16),
- nombre VARCHAR(25),
- apellidos VARCHAR(25));
-
-CREATE TABLE solicitudDelegados
-(idSolicitud INT PRIMARY KEY AUTO_INCREMENT,
- nombre VARCHAR(25),
- apellidos VARCHAR(50),
- telefono CHAR(9),
- email VARCHAR(254),
- razon TEXT);
-
-CREATE TABLE noticias
-(idNoticia INT PRIMARY KEY AUTO_INCREMENT,
- titulo VARCHAR(240),
- subtitulo TEXT,
- cuerpo TEXT,
- imagen VARCHAR(250),
- pieImagen varchar(150),
- imagenMiniatura VARCHAR(250),
- fehaCreacion DATE,
- fechaModificaion DATETIME);
 
 CREATE DATABASE CCOO;
 USE CCOO;
