@@ -1,7 +1,10 @@
 
 body{
 	font-family: 'Maven Pro', sans-serif;
-	background-image: url("../Multimedia/fondo.png");
+	background-image: url("../Img/fondo.png");
+}
+.divMenu{
+	display: block;
 }
 .lista-menu{
 	padding:0;
