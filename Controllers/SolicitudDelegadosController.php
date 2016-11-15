@@ -22,14 +22,6 @@ function registrarSolicitud()
     }
 }
 
-/*
-function mostrarSolicitud()
-{
-    //$solicitudDAO = new SolicitudDelegadosDAO();
-    //$solicitudDAO->selectAll();
-    //UtilViews::redirigirA("");
-}
-*/
 
 if(!empty($_POST)){
     registrarSolicitud();
