@@ -1,5 +1,5 @@
 <?php
-
+require_once("UtilDB.php");
 class MultimediaDAO
 {
     public function insert($multimedia)
@@ -23,5 +23,12 @@ class MultimediaDAO
 
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    function videosAlbum($IdAlbum){
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare("SELECT * FROM multimedia WHERE id_album = $IdAlbum");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }

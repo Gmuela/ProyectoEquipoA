@@ -59,7 +59,7 @@ function registarMultimedia(){
 
     $multimediaDAO = new MultimediaDAO();
     $multimediaDAO->insert($multimedia);
-    UtilViews::redirigirA("galeria.php");
+    UtilViews::redirigirA("vistaGaleria.php");
 
 }
 

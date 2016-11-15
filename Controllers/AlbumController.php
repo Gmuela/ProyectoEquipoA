@@ -37,7 +37,7 @@ function registrarAlbum(){
     $album->setArrayMultimedia = arrayMultimedia();
     $albumDAO = new AlbumDAO();
     $albumDAO->insert($album);
-    UtilViews::redirigirA("galeria.php");
+    UtilViews::redirigirA("vistaGaleria.php");
 
 
 
