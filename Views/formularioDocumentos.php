@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Formulario Documentos</title>
 </head>
 <body>
 <h1>Formulario de Documentos</h1>
-<form action="../Controllers/DocumentosController.php" name="formularioDocumentos" method="post">
+<form action="../Controllers/DocumentosController.php" name="formularioDocumentos" method="post" enctype="multipart/form-data">
 
     <label for="titulo">Titulo</label> <input type="text" name="titulo" id="titulo">
     <label for="descripcion">Descripción</label> <textarea name="descripcion" id="descripcion"></textarea>

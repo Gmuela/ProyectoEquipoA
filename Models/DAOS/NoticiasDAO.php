@@ -1,5 +1,6 @@
 <?php
-require_once ("../../Beans/Noticias.php");
+require_once ("../Beans/Noticias.php");
+require_once("UtilDB.php");
 
 class NoticiasDAO
 {
@@ -17,13 +18,14 @@ class NoticiasDAO
                                              :fehaCreacion,
                                              :fechaModificaion)");
         $query->bindParam(":titulo", $noticias->getTitulo());
-        $query->bindParam(":subtitulo", $noticias->getSubitulo());
+        $query->bindParam(":subtitulo", $noticias->getSubtitulo());
+        $query->bindParam(":cuerpo", $noticias->getCuerpo());
         $query->bindParam(":imagen", $noticias->getImagen());
         $query->bindParam(":pieImagen", $noticias->getPieImagen());
         $query->bindParam(":imagenMiniatura", $noticias->getImagenMiniatura());
-        $query->bindParam(":fehaCreacion", $noticias->getFehaCreacion());
-        $query->bindParam(":fechaModificaion", $noticias->getFechaModificacion());
-        //TODO other bindParams()
+        $query->bindParam(":fehaCreacion", $noticias->getFechaCreacion()->format('Y-m-d H:i:s'));
+        $query->bindParam(":fechaModificaion", $noticias->getFechaModificacion()->format('Y-m-d H:i:s'));
+
         $query->execute();
     }
     public function selectAll()

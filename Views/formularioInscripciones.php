@@ -1,5 +1,5 @@
 <?php
-require_once ("../Controllers/InscripcionesController.php");
+require_once ("../Controllers/EventosController.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

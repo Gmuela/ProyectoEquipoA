@@ -11,10 +11,7 @@ require_once ("../Controllers/EventosController.php");
 <h1>Formulario de creación de Eventos</h1>
 <form action="../Controllers/EventosController.php" name="formularioEventos" method="post" enctype="multipart/form-data">
 
-    <label for="tipo">Tipo</label>
-    <select name="tipo" id="tipo">
-        <?php echo crearSelectTipo()?>
-    </select>
+    <label for="tipo">Tipo</label><input type="text" name="tipo" id="tipo">
     <label for="fechaInicio">Fecha Inicio</label> <input type="date" name="fechaInicio" id="fechaInicio">
     <label for="hora">Hora</label> <input type="text" name="hora" id="hora">
     <label for="fechaFin">Fecha Fin</label> <input type="date" name="fechaFin" id="fechaFin">

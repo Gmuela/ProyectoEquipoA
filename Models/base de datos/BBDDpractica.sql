@@ -27,7 +27,7 @@ CREATE TABLE noticias
  imagen VARCHAR(250),
  pieImagen varchar(150),
  imagenMiniatura VARCHAR(250),
- fehaCreacion DATE,
+ fechaCreacion DATE,
  fechaModificaion DATETIME);
 
 CREATE TABLE eventos
@@ -67,6 +67,7 @@ CREATE TABLE documentacion
 CREATE TABLE album
 (idAlbum INT PRIMARY KEY AUTO_INCREMENT,
  titulo VARCHAR(150),
+ arrayMultimedia VARCHAR(254),
  imagenes BOOLEAN,
  fechaModificacion DATETIME);
 
@@ -81,3 +82,4 @@ CREATE TABLE multimedia
  REFERENCES album (idAlbum)
  ON UPDATE CASCADE
  ON DELETE RESTRICT);
+ 

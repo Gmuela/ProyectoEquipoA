@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../../Beans/Documentos.php");
+require_once ("UtilDB.php");
 
 class DocumentosDAO
 {
@@ -17,16 +17,19 @@ class DocumentosDAO
                                             :ley, 
                                             :fechaModificacion)");
         $query->bindParam(":titulo", $documentos->getTitulo());
-        $query->bindParam(":password", $documentos->getpassword());
-        $query->bindParam(":nombre", $documentos->getnombre());
-        $query->bindParam(":apellidos", $documentos->getapellidos());
+        $query->bindParam(":descripcion", $documentos->getDescripcion());
+        $query->bindParam(":fechaPublicacion", $documentos->getFechaPublicacion());
+        $query->bindParam(":archivo", $documentos->getArchivo());
+        $query->bindParam(":privado", $documentos->getPrivado());
+        $query->bindParam(":ley", $documentos->getLey());
+        $query->bindParam(":fechaModificacion", $documentos->getFechaModificacion()->format("Y-m-d H:i:s"));
         //TODO other bindParams()
         $query->execute();
     }
     public function selectAll()
     {
         $dbConnection = UtilDB::connectTo("ccoo", "root", "");
-        $query = $dbConnection->prepare('SELECT * FROM documentacion');
+        $query = $dbConnection->prepare('SELECT * FROM documentacion ORDER BY fechaPublicacion DESC');
 
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);

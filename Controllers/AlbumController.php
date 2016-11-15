@@ -1,51 +1,113 @@
+<!DOCTYPE html>
+<html>
+<body>
 <?php
 
 //Establecer las propiedades que se recogen del formulario
 require_once("../Beans/Album.php");
-//require_once("../Models/MultimediaDAO.php");
-//require_once("../Models/DAOS/AlbumDAO.php");
+require_once("../Models/DAOS/MultimediaDAO.php");
+require_once("../Models/DAOS/AlbumDAO.php");
 require_once("UtilForms.php");
+require_once ("UtilViews.php");
+
 
 //Función para comprobar datos
 $formulario = $_POST;
 if(validarFormulario("album", $formulario)){
-    echo "formulario valido";
+
     registrarAlbum();
 }
 else
-    echo "formulario no valido";
+    echo "error en formulario, vuelva y revise los datos";
 
 //Función para registar un album
 function registrarAlbum(){
     global $formulario;
 
-    $newAlbum = new Album();
-    $newAlbum->setTitulo($formulario["titulo"]);
+
+    $album = new Album();
+    $album->setTitulo($formulario["titulo"]);
     if ($formulario["tipoAlbum"] == "imagen") {
-        $newAlbum->setImagen(true);
+        $album->setImagen(true);
     } elseif ($formulario["tipoAlbum"] == "video") {
-        $newAlbum->setImagen(false);
+        $album->setImagen(false);
     }
-    $newAlbum->setFechaModificacion(new DateTime());
-    //$multimediaDAO = new MultimediaDAO();
-    //$newAlbum->setArrayMultimedia = $multimediaDAO->selectAll();
+    $album->setFechaModificacion(new DateTime());
 
-    //$multimediaDAO->insert($newAlbum);
+    $album->setArrayMultimedia = arrayMultimedia();
+    $albumDAO = new AlbumDAO();
+    $albumDAO->insert($album);
+    UtilViews::redirigirA("galeria.php");
+
 
 
 }
+function mostrarAlbum(){
+    //require_once("MultimediaController.php");
+    $albumDAO = new AlbumDAO();
+    $arrayAlbums = $albumDAO->selectAll();
+    $albums = 0;
+
+    foreach ($arrayAlbums as $value) {
+        if($value['imagenes'])
+            $albums.= "<h1>".$value['titulo']."</h1><h3>(Album de imágenes)</h3>".mostrarImagenes($value['idAlbum']);
 
 
-//Función llamada en el formulario de añadir Multimedia ("formularioMultimedia.php") para desplegar un select dinámico
-function crearSelectAlbum()
-{
-    $arrayAlbums = ["1" => "Imagenes Huelga 12/10", "2" => "Videos Huelga 12/10"];
-    //$albumDAO = new AlbumDAO();
-    //$arrayAlbums = $albumDAO->getArrayAlbums();
-    $options=0;
-    foreach ($arrayAlbums as $value => $innerOptionTag) {
-        $options.= "<option value='".$value."'>".$innerOptionTag."</option>";
+        else
+            $albums.= "<h1>".$value['titulo']."</h1><h3>(Album de videos)</h3>".mostrarVideos($value['idAlbum']);
     }
-    return $options;
+    return $albums;
+
 }
+function mostrarVideos($idAlbum){
+
+    $multimediaDAO = new MultimediaDAO();
+    $arrayMultimedia = $multimediaDAO->videosAlbum($idAlbum);
+
+    $resultado = 0;
+    foreach ($arrayMultimedia as $value){
+        $resultado.= toEmbebedYoutubeURL($value['fuente']);
+    }
+    return $resultado;
+
+}
+function mostrarImagenes($idAlbum){
+
+    $multimediaDAO = new MultimediaDAO();
+    $arrayMultimedia = $multimediaDAO->videosAlbum($idAlbum);
+
+    $resultado = 0;
+    foreach ($arrayMultimedia as $value){
+        $resultado.= toEmbebedImage($value['fuente']);
+    }
+    return $resultado;
+
+}
+function toEmbebedYoutubeURL($url){
+    $idVideo = substr($url, -11, 11);
+    $iframeVideoYT = "<iframe width='560' height='315' src='https://www.youtube.com/embed/$idVideo' frameborder='0' allowfullscreen></iframe>";
+    return $iframeVideoYT;
+}
+function toEmbebedImage($url){
+    $imagenEMb = "<img src='$url' height='315' width='560''>";
+    return $imagenEMb;
+}
+
+function arrayMultimedia(){
+
+    $multimediaDAO = new MultimediaDAO();
+    $arrayMultimedia = $multimediaDAO->selectAll();
+    $strId=0;
+    foreach ($arrayMultimedia as $value) {
+        $strId.= " ".$value['idMultimedia'];
+    }
+    $arrayId = explode(" ",$strId);
+
+    return implode(", ", $arrayId);
+}
+
+?>
+</body>
+</html>
+
 

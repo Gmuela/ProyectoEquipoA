@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Formulario Delegados</title>
 </head>
 <body>
 <h1>Formulario de Delegados</h1>

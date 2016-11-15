@@ -1,5 +1,7 @@
 <?php
-require_once ("../Controllers/AlbumController.php");
+
+require ("../Controllers/AlbumController_select.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +19,8 @@ require_once ("../Controllers/AlbumController.php");
         <button onclick="submit(this)">Añadir multimedia</button>
 
     </form>
+
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 require_once("../../Beans/Eventos.php");
+require_once ("UtilDB.php");
 
 class InscripcionDAO
 {
@@ -11,12 +12,12 @@ class InscripcionDAO
                                       VALUES(                                           
                                             :id_evento,
                                             :nombre,
-                                            :apellidos,
+                                            :apellido,
                                             :email,
                                             :telefono)");
         $query->bindParam(":id_evento", $inscripcion->getIdEvento());
         $query->bindParam(":nombre", $inscripcion->getNombre());
-        $query->bindParam(":apellidos", $inscripcion->getApellidos());
+        $query->bindParam(":apellido", $inscripcion->getApellidos());
         $query->bindParam(":email", $inscripcion->getEmail());
         $query->bindParam(":telefono", $inscripcion->getTelefono());
 

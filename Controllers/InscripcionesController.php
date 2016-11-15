@@ -20,7 +20,7 @@ function registrarInscripcion()
         $inscripcionDAO = new InscripcionDAO();
         $inscripcionDAO->insert($incripcionNueva);
 
-        //TODO preparar vistas mostrar -> UtilViews::redirigirA("formularioNoticias.html");
+        //TODO preparar vistas mostrar -> UtilViews::redirigirA("formularioNoticias.php");
 
 
     }
@@ -29,16 +29,6 @@ function registrarInscripcion()
         echo "Formulario erróneo";
     }
 
-}
-
-function crearSelectEventos()
-{
-    $arrayEventos = ["0" => "Java Conference", "1" => "HolaMundoSQL", "2" => "Heil Gitler!", "3" => "FW are the devil"];
-    $options=0;
-    foreach ($arrayEventos as $value => $innerOptionTag) {
-        $options.= "<option value='".$value."'>".$innerOptionTag."</option>";
-    }
-    return $options;
 }
 
 if(!empty($_POST)){

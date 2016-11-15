@@ -1,22 +1,21 @@
 <?php
 
-require_once ("../../Beans/SolicitudesDelegados.php");
+require_once ("UtilDB.php");
 
 class SolicitudDelegadosDAO
 {
     public function insert($solicitudDelegados)
     {
         $dbConnection = UtilDB::connectTo("CCOO","root","");
-        $query = $dbConnection->prepare("INSERT INTO solicitudDelegados (nombre, apellidos, telefono, email, razon)
+        $query = $dbConnection->prepare("INSERT INTO solicituddelegados(nombre, apellidos, telefono, email, razon)
                                       VALUES(
-                                            
                                             :nombre,
                                             :apellidos,
                                             :telefono,
                                             :email,
                                             :razon)");
         $query->bindParam(":nombre", $solicitudDelegados->getNombre());
-        $query->bindParam(":idapellidos", $solicitudDelegados->getApellidos());
+        $query->bindParam(":apellidos", $solicitudDelegados->getApellidos());
         $query->bindParam(":telefono", $solicitudDelegados->getTelefono());
         $query->bindParam(":email", $solicitudDelegados->getEmail());
         $query->bindParam(":razon", $solicitudDelegados->getRazon());

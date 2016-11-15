@@ -45,31 +45,67 @@ function validarFormulario($nombreFormulario, $datosFormulario)
 
     }
     if ($nombreFormulario == "multimedia"){
+        //El título está puesto
         if (trim($datosFormulario["titulo"]) == ""){
-            $checked = false;
+            $checked = false;         
 
         }
+        //Se ha añadido al menos una URL o se ha cargado un archivo
         if (!is_uploaded_file($_FILES['foto']['tmp_name']) AND trim($datosFormulario["url"]) ==""){
             $checked = false;
         }
+        //No se ha cargado un archivo y añadido un URL a la vez
         if(is_uploaded_file($_FILES['foto']['tmp_name']) AND trim($datosFormulario["url"]) !==""){
             $checked = false;
         }
+
+
+        //Si se añade una URL se comprueba que ésta es una imagen o un video de youtube
         if(trim($datosFormulario["url"]) !==""){
-            if(!isImage($datosFormulario["url"]) AND !videoType($datosFormulario["url"])){
+            if(!isImagen($datosFormulario["url"]) AND !isYoutube1($datosFormulario["url"])){
+                $checked = false;
+            }
+            //Se comprueba que la URL es válida
+            if(!isURL1($datosFormulario["url"])){
                 $checked = false;
             }
         }
 
-
-
+    }
+    if($nombreFormulario=="delegados"){
+        if ($datosFormulario["nombre"] == null AND $datosFormulario["password"] == null AND $datosFormulario["usuario"] == null AND $datosFormulario["apellidos"] == null) {
+            $checked = false;
+        }
+        if (strlen($datosFormulario["password"]) < 6) {
+            $checked = false;
+        }
     }
 
+    if($nombreFormulario=="solicitudDelegados") {
+        if ($datosFormulario["nombre"] == null AND $datosFormulario["apellidos"] == null AND $datosFormulario["razon"] == null AND $datosFormulario["telefono"] == null AND $datosFormulario["email"] == null) {
+            $checked = false;
+        }
+        if (strpos($datosFormulario["email"], "@") == false) {
+            $checked = false;
+        }
+        $expresion = '/^[9|6|7][0-9]{8}$/';
+        if (!preg_match($expresion, $datosFormulario["telefono"])) {
+            $checked = false;
+        }
+    }
+
+    if($nombreFormulario=="documentos") {
+        if ($datosFormulario["titulo"] == null AND $datosFormulario["descripcion"] == null AND $datosFormulario["fechaPublicacion"] == null) {
+            $checked = false;
+        }
+        if (!is_uploaded_file($_FILES['file']['tmp_name'])){
+            $checked = false;
+        }
+    }
 
     return $checked;
 }
-function isImage( $url )
-{
+function isImage( $url ){
     $pos = strrpos( $url, ".");
     if ($pos === false)
         return false;
@@ -79,10 +115,22 @@ function isImage( $url )
         return true;
     return false;
 }
-function videoType($url) {
-    if (strpos($url, 'youtube') > 0) {
+function isYoutube($url) {
+    if (strpos($url, 'https://www.youtube') === 0) {
         return true;
-    }  else {
+    }
+    elseif(strpos($url, 'https://youtu.be') === 0) {
+        return true;
+    }
+    else {
         return false;
+    }
+}
+function isURL($url){
+    if(filter_var($url, FILTER_VALIDATE_URL) === FALSE){
+        return false;
+    }
+    else {
+        return true;
     }
 }

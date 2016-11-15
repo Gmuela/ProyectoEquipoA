@@ -1,16 +1,16 @@
 <?php
 
-require_once ("../../Beans/Delegados.php");
+require_once ("UtilDB.php");
 
 class DelegadosDAO
 {
     public function insert($delegados)
     {
-        $dbConnection = UtilDB::connectTo("CCOO","root","");
+        $dbConnection = UtilDB::connectTo("ccoo","root","");
         $query = $dbConnection->prepare("INSERT INTO delegados(usuario, password, nombre, apellidos)
                                       VALUES(                                           
                                             :usuario,
-                                            :pasword,
+                                            :password,
                                             :nombre,
                                             :apellidos)");
         $query->bindParam(":usuario", $delegados->getUsuario());
@@ -19,6 +19,22 @@ class DelegadosDAO
         $query->bindParam(":apellidos", $delegados->getApellidos());
         //TODO other bindParams()
         $query->execute();
+    }
+    public function selectAll()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM delegados');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function selectUsuPass($usu)
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT usuario, password FROM delegados WHERE usuario = $usu');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC) ;
     }
 }
 

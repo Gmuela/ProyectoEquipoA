@@ -8,7 +8,7 @@ class MultimediaDAO
 
         $query = $dbConnection->prepare("INSERT INTO multimedia(imagen, fuente, titulo, id_album, fechaModificacion) VALUES(:imagen, :fuente, :titulo,:id_album,:fechaModificacion)");
 
-        $query->bindParam(":imagenes",$multimedia->getImagen());
+        $query->bindParam(":imagen",$multimedia->getImagen());
         $query->bindParam(":fuente", $multimedia->getFuente());
         $query->bindParam(":titulo", $multimedia->getTitulo());
         $query->bindParam(":id_album", $multimedia->getIdAlbum());
