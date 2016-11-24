@@ -1,15 +1,19 @@
 <?php
-require_once ("../Controllers/EventosController.php");
+require_once("../Controllers/EventosController.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eventos</title>
+    <title>Vista Eventos</title>
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/Formularios.css">
 </head>
 <body>
-<?php
-echo mostrarEventos();
-?>
+<nav><?php UtilViews::importNavigator() ?></nav>
+<main>
+    <?php
+    echo mostrarEventos();
+    ?>
+</main>
 </body>
 </html>

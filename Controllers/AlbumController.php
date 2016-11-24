@@ -3,15 +3,12 @@
 <body>
 <?php
 
-//Establecer las propiedades que se recogen del formulario
 require_once("../Beans/Album.php");
 require_once("../Models/DAOS/MultimediaDAO.php");
 require_once("../Models/DAOS/AlbumDAO.php");
 require_once("UtilForms.php");
 require_once ("UtilViews.php");
 
-
-//Función para comprobar datos
 $formulario = $_POST;
 if(validarFormulario("album", $formulario)){
 
@@ -20,7 +17,6 @@ if(validarFormulario("album", $formulario)){
 else
     echo "error en formulario, vuelva y revise los datos";
 
-//Función para registar un album
 function registrarAlbum(){
     global $formulario;
 
@@ -43,7 +39,6 @@ function registrarAlbum(){
 
 }
 function mostrarAlbum(){
-    //require_once("MultimediaController.php");
     $albumDAO = new AlbumDAO();
     $arrayAlbums = $albumDAO->selectAll();
     $albums = 0;

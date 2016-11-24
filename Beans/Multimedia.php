@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Created by PhpStorm.
+ * User: curso mañana
+ * Date: 11/11/2016
+ * Time: 11:38
+ */
 class Multimedia
 {
     //Propiedades
@@ -8,7 +15,7 @@ class Multimedia
 
     private $IdAlbum;
 
-    private $imagen; //booleand
+    private $Imagen; //booleand
 
     private $fuente;  //ruta al archivo
 
@@ -27,21 +34,24 @@ class Multimedia
     {
         return $this->titulo;
     }
-    public function setIdAlbum($IdAlbum)
-    {
-        $this->IdAlbum = $IdAlbum;
-    }
     public function getIdAlbum()
     {
         return $this->IdAlbum;
     }
+
+    public function setIdAlbum($IdAlbum)
+    {
+        $this->IdAlbum = $IdAlbum;
+    }
+
+
     public function setImagen($Imagen)
     {
-        $this->imagen = $Imagen;
+        $this->Imagen = $Imagen;
     }
     public function getImagen()
     {
-        return $this->imagen;
+        return $this->Imagen;
     }
     public function setFuente($fuente)
     {

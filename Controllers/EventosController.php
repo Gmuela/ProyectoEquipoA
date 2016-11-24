@@ -24,7 +24,7 @@ function registrarEvento()
 
         $eventoDAO = new EventoDAO();
         $eventoDAO->insert($eventoNuevo);
-        UtilViews::redirigirA("../Views/vistaEventos.html");
+        UtilViews::redirigirA("../Views/vistaEventos.php");
 
 
     } else {
@@ -41,7 +41,7 @@ function mostrarEventos()
     $result = "";
 
     foreach ($arrayEventos as $fila) {
-        $result = "<div>";
+        $result .= "<div>";
         $result .= "<h3>" . $fila["tipo"] . "</h3>";
         $result .= "<ul>";
         $result .= "<li>Fecha de inicio: " . $fila["fechaInicio"] . "</li>";

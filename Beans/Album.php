@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: curso mañana
+ * Date: 11/11/2016
+ * Time: 12:19
+ */
 class Album
 {
     //Propiedades
@@ -7,7 +13,7 @@ class Album
 
     private $titulo;
 
-    private $imagen; //Boooleand
+    private $imagen;
 
     private $fechaModificacion;
 

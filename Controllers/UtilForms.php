@@ -98,7 +98,7 @@ function validarFormulario($nombreFormulario, $datosFormulario)
         if ($datosFormulario["titulo"] == null AND $datosFormulario["descripcion"] == null AND $datosFormulario["fechaPublicacion"] == null) {
             $checked = false;
         }
-        if (!is_uploaded_file($_FILES['file']['tmp_name'])){
+        if (!is_uploaded_file($_FILES['archivo']['tmp_name'])){
             $checked = false;
         }
     }

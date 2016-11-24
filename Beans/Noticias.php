@@ -9,7 +9,7 @@ class Noticias
     private $imagen;
     private $pieImagen;
     private $imagenMiniatura;
-    private $fechaCreación;
+    private $fechaCreacion;
     private $fechaModificacion;
 
     public function getCuerpo()
@@ -53,14 +53,14 @@ class Noticias
         $this->titulo = $titulo;
     }
 
-    public function getFechaCreación()
+    public function getFechaCreacion()
     {
-        return $this->fechaCreación;
+        return $this->fechaCreacion;
     }
 
-    public function setFechaCreación($fechaCreación)
+    public function setFechaCreacion($fechaCreacion)
     {
-        $this->fechaCreación = $fechaCreación;
+        $this->fechaCreacion = $fechaCreacion;
     }
 
     public function getFechaModificacion()

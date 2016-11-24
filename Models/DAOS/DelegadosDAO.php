@@ -28,6 +28,14 @@ class DelegadosDAO
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function selectAllSolicitudes()
+    {
+        $dbConnection = UtilDB::connectTo("ccoo", "root", "");
+        $query = $dbConnection->prepare('SELECT * FROM solicituddelegados');
+
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function selectUsuPass($usu)
     {
         $dbConnection = UtilDB::connectTo("ccoo", "root", "");

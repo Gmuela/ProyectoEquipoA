@@ -11,7 +11,7 @@ class Eventos
     private $lugar;
     private $descripcion;
     private $cupo;
-    private $fechaModificación;
+    private $fechaModificacion;
 
     public function getTipo()
     {
@@ -73,14 +73,14 @@ class Eventos
         $this->fechaInicio = $fechaInicio;
     }
 
-    public function getFechaModificación()
+    public function getFechaModificacion()
     {
-        return $this->fechaModificación;
+        return $this->fechaModificacion;
     }
 
-    public function setFechaModificación($fechaModificación)
+    public function setFechaModificacion($fechaModificacion)
     {
-        $this->fechaModificación = $fechaModificación;
+        $this->fechaModificacion = $fechaModificacion;
     }
 
     public function getHora()

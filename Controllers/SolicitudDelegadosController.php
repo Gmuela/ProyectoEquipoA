@@ -19,10 +19,14 @@ function registrarSolicitud()
 
         $solicitudDAO = new SolicitudDelegadosDAO();
         $solicitudDAO->insert($solicitudNueva);
+        UtilViews::redirigirA("../Views/vistaSolicitudes.php");
+    } else {
+
+        echo "Formulario erróneo";
     }
+
 }
 
-
-if(!empty($_POST)){
+if (!empty($_POST)) {
     registrarSolicitud();
 }

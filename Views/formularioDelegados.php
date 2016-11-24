@@ -1,20 +1,29 @@
+<?php
+require_once("../Controllers/UtilViews.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario Delegados</title>
+    <title>Formulario Album</title>
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/Formularios.css">
 </head>
 <body>
-<h1>Formulario de Delegados</h1>
-<form action="../Controllers/DelegadosController.php" name="formularioDelegados" method="post">
+<nav><?php UtilViews::importNavigator() ?></nav>
+<main>
+    <h1>Formulario de Delegados</h1>
+    <form action="../Controllers/SolicitudDelegadosController.php" name="formularioSolicitudDelegados" method="post">
 
-    <label for="usuario">Usuario</label> <input type="text" name="usuario" id="usuario">
-    <label for="password">Password</label> <input type="password" name="password" id="password">
-    <label for="nombre">Nombre</label> <input type="text" name="nombre" id="nombre">
-    <label for="apellidos">Apellidos</label> <input type="text" name="apellidos" id="apellidos">
+        <label for="nombre">Nombre</label> <input type="text" name="nombre" id="nombre">
+        <label for="apellidos">Apellidos</label> <input type="text" name="apellidos" id="apellidos">
+        <label for="email">Email</label> <input type="email" name="email" id="email">
+        <label for="telefono">Telefono</label> <input type="number" name="telefono" id="telefono">
+        <label for="razon">Razon</label> <textarea name="razon" id="razon"></textarea>
+        <br>
+        <br>
+        <button onclick="submit(this)" class="formularioButton">Enviar Solicitud</button>
 
-    <button onclick="submit(this)">Registrar</button>
-
-</form>
+    </form>
+</main>
 </body>
 </html>

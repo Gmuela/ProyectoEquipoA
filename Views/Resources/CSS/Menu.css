@@ -1,10 +1,7 @@
 
 body{
 	font-family: 'Maven Pro', sans-serif;
-	background-image: url("../Img/fondo.png");
-}
-.divMenu{
-	display: block;
+	background-image: url("../Multimedia/fondo.png");
 }
 .lista-menu{
 	padding:0;
@@ -53,12 +50,12 @@ h2{
 }
 .menu:hover{
 	background-color: #808080;
-	z-index:100;  
+	z-index:100;
 	transform: scale(1.1);
 }
 .menu:hover .iconos{
 	font-size: 90px;
-	transform: scale(2); 
+	transform: scale(2);
 }
 .submenu{
 	visibility: hidden;
@@ -66,6 +63,7 @@ h2{
 	width: 160px;
 	height: auto;
 	float: left;
+    background-color: #808080;
 	box-shadow: rgba(0,0,0,0.2) 3px 3px 4px;
 	transition: all 300ms linear;
 	border-radius: 15px;
@@ -76,6 +74,7 @@ h2{
 .subopcion{
 	text-align: center;
 }
+
 a{
 	margin-top: 10px;
 }
@@ -84,10 +83,10 @@ a{
 	display: block;
 }
 .subopcion:hover{
-	background-color: #808080;
-	z-index:100;  
+	background-color: red;
+	z-index:100;
 	transform: scale(1.1);
-	border-radius: 15px;
+	border-radius: 5px;
 }
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */

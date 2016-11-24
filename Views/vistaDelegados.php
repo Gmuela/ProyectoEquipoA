@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Vista Delegados</title>
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/Formularios.css">
 </head>
 <body>
-<h1>Solicitud Enviada</h1>
+<nav><?php UtilViews::importNavigator() ?></nav>
+<main>
+    <h1>Solicitud Enviada</h1>
 
-<button onclick="location.href='formularioDelegados.php';">Volver al Formulario</button>
+    <button onclick="location.href='index.html';">Volver al Inicio</button>
+</main>
 </body>
 </html>
